@@ -1,0 +1,51 @@
+{
+  "name": "@shah1900/mcp-db-api-tools",
+  "version": "1.0.0",
+  "description": "Local MCP servers for Cursor: Database Inspector (read-only MySQL) and API Runner (Bearer auth). Debug and verify your API with AI.",
+  "type": "module",
+  "main": "database-inspector/index.js",
+  "bin": {
+    "mcp-db-inspector": "database-inspector/index.js",
+    "mcp-api-runner": "api-runner/index.js"
+  },
+  "scripts": {
+    "db-inspector": "node database-inspector/index.js",
+    "api-runner": "node api-runner/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "cursor",
+    "model-context-protocol",
+    "database",
+    "mysql",
+    "api",
+    "debug",
+    "inspector",
+    "read-only"
+  ],
+  "author": "Shah Shahbaz <shahbaz.sa305@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShahShahbaz305/mcp-db-api-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShahShahbaz305/mcp-db-api-tools/issues"
+  },
+  "homepage": "https://github.com/ShahShahbaz305/mcp-db-api-tools#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "database-inspector",
+    "api-runner",
+    ".env.example",
+    "README.md"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "dotenv": "^16.3.1",
+    "mysql2": "^3.6.1",
+    "zod": "^3.23.0"
+  }
+}

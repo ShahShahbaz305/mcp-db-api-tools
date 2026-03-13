@@ -1,0 +1,14 @@
+# Never publish credentials
+.env
+.env.local
+.env.*.local
+
+# Development
+node_modules
+.git
+.DS_Store
+*.log
+
+# Internal docs (keep PUBLISH.md local)
+PUBLISH.md
+mcp-config.example.json

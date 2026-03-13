@@ -1,0 +1,46 @@
+{
+  "description": "Common Dolphin Retail API endpoints. Update this file to match your API.",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/store-transactions",
+      "description": "Store transactions report with summary and paginated list",
+      "queryParams": ["storeId", "locationId", "startDate", "endDate", "page", "limit"]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/transaction/:id",
+      "description": "Get transaction by ID"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/transaction/list",
+      "description": "List transactions with filters"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/order/:id",
+      "description": "Get order by ID"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/order/list",
+      "description": "List orders with filters"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dashboard/sales-summary",
+      "description": "Sales summary for dashboard"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dashboard/count-stats",
+      "description": "Count statistics for dashboard"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "description": "Login to get auth token"
+    }
+  ]
+}
