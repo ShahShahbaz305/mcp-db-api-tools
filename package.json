@@ -1,6 +1,6 @@
 {
   "name": "@shah1900/mcp-db-api-tools",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Local MCP servers for Cursor: Database Inspector (read-only MySQL) and API Runner (Bearer auth). Debug and verify your API with AI.",
   "type": "module",
   "main": "database-inspector/index.js",
