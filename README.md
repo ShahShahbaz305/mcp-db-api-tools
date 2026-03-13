@@ -72,9 +72,11 @@ npx @shah1900/mcp-db-api-tools init
 
 | What | Location |
 |------|----------|
-| Package code | `node_modules/@shah1900/mcp-db-api-tools/` (auto-installed) |
+| MCP servers | `.mcp-cheatsheet/database-inspector/`, `.mcp-cheatsheet/api-runner/` (full copy) |
 | Your credentials | `.mcp-cheatsheet/.env` (created by setup) |
 | Cursor config | `.cursor/mcp.json` (created by setup) |
+
+The setup copies the full package into `.mcp-cheatsheet` so you have everything in one place.
 
 ---
 
