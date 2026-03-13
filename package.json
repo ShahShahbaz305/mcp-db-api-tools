@@ -1,6 +1,6 @@
 {
   "name": "@shah1900/mcp-db-api-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Local MCP servers for Cursor: Database Inspector (read-only MySQL) and API Runner (Bearer auth). Debug and verify your API with AI.",
   "type": "module",
   "main": "database-inspector/index.js",
@@ -10,7 +10,8 @@
   },
   "scripts": {
     "db-inspector": "node database-inspector/index.js",
-    "api-runner": "node api-runner/index.js"
+    "api-runner": "node api-runner/index.js",
+    "postinstall": "node -e \"console.log('\\n✅ @shah1900/mcp-db-api-tools installed!\\n\\n📋 Next steps:\\n  1. mkdir -p .mcp-cheatsheet\\n  2. cp node_modules/@shah1900/mcp-db-api-tools/.env.example .mcp-cheatsheet/.env\\n  3. Edit .mcp-cheatsheet/.env with your DB and API credentials\\n  4. Create .cursor/mcp.json (see README)\\n  5. Add .mcp-cheatsheet/ to .gitignore\\n  6. Restart Cursor\\n\\n📖 Full docs: node_modules/@shah1900/mcp-db-api-tools/README.md\\n')\""
   },
   "keywords": [
     "mcp",

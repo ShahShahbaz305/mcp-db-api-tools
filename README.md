@@ -11,11 +11,11 @@
 
 - [Features](#features)
 - [Installation](#installation)
-- [Quick Start](#quick-start)
+- [Complete Setup](#complete-setup-copy-paste)
+- [Where files go](#where-files-go)
 - [Database Inspector](#database-inspector)
 - [API Runner](#api-runner)
 - [Configuration](#configuration)
-- [Cursor Setup](#cursor-setup)
 - [Debug Logging](#debug-logging)
 - [Security](#security)
 - [License](#license)
@@ -38,31 +38,29 @@
 
 ## Installation
 
-### Option A: npm (recommended)
-
 ```bash
 npm install @shah1900/mcp-db-api-tools
 ```
 
-### Option B: Copy from GitHub
-
-Clone or download the repo and copy the package folder into your project.
+**Important:** The package installs to `node_modules/@shah1900/mcp-db-api-tools/`. You must create `.mcp-cheatsheet` and `.cursor` yourself—they are not created automatically.
 
 ---
 
-## Quick Start
+## Complete Setup (copy-paste)
 
-### 1. Create config folder and env file
+Run these commands **from your project root** (where `package.json` lives):
 
 ```bash
+# 1. Create config folder and copy env template
 mkdir -p .mcp-cheatsheet
 cp node_modules/@shah1900/mcp-db-api-tools/.env.example .mcp-cheatsheet/.env
-# Edit .mcp-cheatsheet/.env with your DB and API credentials
+
+# 2. Add to .gitignore (so credentials are never committed)
+echo ".mcp-cheatsheet/" >> .gitignore
+
+# 3. Edit .mcp-cheatsheet/.env with your DB and API credentials
+# (open in editor and fill in DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME, API_BASE_URL, API_AUTH_TOKEN)
 ```
-
-Add `.mcp-cheatsheet/` to `.gitignore` (credentials are stored there).
-
-### 2. Configure Cursor
 
 Create `.cursor/mcp.json` in your project root:
 
@@ -85,15 +83,17 @@ Create `.cursor/mcp.json` in your project root:
 }
 ```
 
-**If you copied the folder** instead of npm install, use:
+**Restart Cursor** (MCP servers load at startup).
 
-```json
-"args": ["./.mcp-cheatsheet/database-inspector/index.js"]
-```
+---
 
-### 3. Restart Cursor
+## Where files go
 
-MCP servers load at startup. Fully restart Cursor after changing config.
+| What | Location |
+|------|----------|
+| Package code | `node_modules/@shah1900/mcp-db-api-tools/` (auto-installed) |
+| Your credentials | `.mcp-cheatsheet/.env` (you create this) |
+| Cursor config | `.cursor/mcp.json` (you create this) |
 
 ---
 
