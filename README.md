@@ -42,48 +42,29 @@
 npm install @shah1900/mcp-db-api-tools
 ```
 
-**Important:** The package installs to `node_modules/@shah1900/mcp-db-api-tools/`. You must create `.mcp-cheatsheet` and `.cursor` yourself—they are not created automatically.
+**SDK-style setup:** On install, the package automatically creates:
+- `.mcp-cheatsheet/.env` (from template)
+- `.cursor/mcp.json` (Cursor MCP config)
+- Adds `.mcp-cheatsheet/` to `.gitignore`
+
+**Manual setup** (if you skipped install or need to re-run):
+
+```bash
+npx @shah1900/mcp-db-api-tools init
+```
 
 ---
 
-## Complete Setup (copy-paste)
+## Complete Setup
 
-Run these commands **from your project root** (where `package.json` lives):
+1. **Install** (runs setup automatically):
+   ```bash
+   npm install @shah1900/mcp-db-api-tools
+   ```
 
-```bash
-# 1. Create config folder and copy env template
-mkdir -p .mcp-cheatsheet
-cp node_modules/@shah1900/mcp-db-api-tools/.env.example .mcp-cheatsheet/.env
+2. **Edit** `.mcp-cheatsheet/.env` with your DB and API credentials.
 
-# 2. Add to .gitignore (so credentials are never committed)
-echo ".mcp-cheatsheet/" >> .gitignore
-
-# 3. Edit .mcp-cheatsheet/.env with your DB and API credentials
-# (open in editor and fill in DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME, API_BASE_URL, API_AUTH_TOKEN)
-```
-
-Create `.cursor/mcp.json` in your project root:
-
-```json
-{
-  "mcpServers": {
-    "database-inspector": {
-      "command": "node",
-      "args": ["./node_modules/@shah1900/mcp-db-api-tools/database-inspector/index.js"],
-      "env": {},
-      "disabled": false
-    },
-    "api-runner": {
-      "command": "node",
-      "args": ["./node_modules/@shah1900/mcp-db-api-tools/api-runner/index.js"],
-      "env": {},
-      "disabled": false
-    }
-  }
-}
-```
-
-**Restart Cursor** (MCP servers load at startup).
+3. **Restart Cursor** (MCP servers load at startup).
 
 ---
 
@@ -92,8 +73,8 @@ Create `.cursor/mcp.json` in your project root:
 | What | Location |
 |------|----------|
 | Package code | `node_modules/@shah1900/mcp-db-api-tools/` (auto-installed) |
-| Your credentials | `.mcp-cheatsheet/.env` (you create this) |
-| Cursor config | `.cursor/mcp.json` (you create this) |
+| Your credentials | `.mcp-cheatsheet/.env` (created by setup) |
+| Cursor config | `.cursor/mcp.json` (created by setup) |
 
 ---
 
