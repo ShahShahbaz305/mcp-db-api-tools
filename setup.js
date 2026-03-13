@@ -64,7 +64,12 @@ function setup() {
   cpSync(join(pkgDir, 'api-runner'), join(mcpDir, 'api-runner'), { recursive: true })
   console.log('  ✓ Copied api-runner/')
 
-  // 2. Copy .env (from template if not exists)
+  // 2. Copy USAGE.md and .env
+  if (existsSync(join(pkgDir, 'USAGE.md'))) {
+    copyFileSync(join(pkgDir, 'USAGE.md'), join(mcpDir, 'USAGE.md'))
+    console.log('  ✓ Copied USAGE.md')
+  }
+  // 3. Copy .env (from template if not exists)
   if (!existsSync(envDest)) {
     copyFileSync(envExample, envDest)
     console.log('  ✓ Created .mcp-cheatsheet/.env (edit with your credentials)')
@@ -72,18 +77,18 @@ function setup() {
     console.log('  ✓ .mcp-cheatsheet/.env already exists')
   }
 
-  // 3. Write package.json and install deps
+  // 4. Write package.json and install deps
   writeFileSync(join(mcpDir, 'package.json'), JSON.stringify(mcpPackageJson, null, 2))
   console.log('  ✓ Installing dependencies in .mcp-cheatsheet/...')
   execSync('npm install', { cwd: mcpDir, stdio: 'pipe' })
   console.log('  ✓ Dependencies installed')
 
-  // 4. Create .cursor/mcp.json
+  // 5. Create .cursor/mcp.json
   mkdirSync(cursorDir, { recursive: true })
   writeFileSync(mcpJsonPath, JSON.stringify(mcpConfig, null, 2))
   console.log('  ✓ Created .cursor/mcp.json')
 
-  // 5. Add .mcp-cheatsheet to .gitignore
+  // 6. Add .mcp-cheatsheet to .gitignore
   if (existsSync(gitignorePath)) {
     const content = readFileSync(gitignorePath, 'utf8')
     if (!content.includes('.mcp-cheatsheet')) {

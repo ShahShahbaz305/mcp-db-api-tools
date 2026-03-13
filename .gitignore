@@ -9,3 +9,10 @@ node_modules/
 # OS
 .DS_Store
 *.log
+.mcp-cheatsheet/
+
+# Cursor config (local MCP paths)
+.cursor/
+
+# Usage docs
+USAGE.md
