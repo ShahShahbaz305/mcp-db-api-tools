@@ -7,7 +7,7 @@
 
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
-import { existsSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import dotenv from 'dotenv'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -29,7 +29,6 @@ function log(...args) {
   }
 }
 
-import { readFileSync, existsSync } from 'fs'
 import { Server } from '@modelcontextprotocol/sdk/server/index.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import {
